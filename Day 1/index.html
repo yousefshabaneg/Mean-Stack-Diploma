@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script defer src="script.js"></script> -->
+    <script defer src="src.js"></script>
+    <title>Mean Stack</title>
+  </head>
+  <body>
+    <form id="addTask">
+      <fieldset>
+        <legend>Add Your Todo Item:</legend>
+        <div class="form-container">
+          <div class="form-element">
+            <label for="title">Title:</label>
+            <input id="title" type="text" />
+          </div>
+          <div class="form-element">
+            <label for="content">Content:</label>
+            <input id="content" type="content" />
+          </div>
+          <div class="form-element">
+            <label for="email">Email:</label>
+            <input id="email" type="email" />
+          </div>
+          <div class="form-element">
+            <label>Due Date:</label>
+            <input type="date" id="date" name="date" />
+          </div>
+          <div class="form-element">
+            <input class="btn btn-add" type="submit" value="Add" />
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <form>
+      <fieldset>
+        <legend>Filter Your Todo List:</legend>
+        <div class="form-container">
+          <div class="form-element">
+            <label>Start Date:</label>
+            <input type="date" id="start-date" name="start-date" />
+          </div>
+          <div class="form-element">
+            <label>End Date:</label>
+            <input type="date" id="end-date" name="end-date" />
+          </div>
+          <div class="form-element">
+            <input class="btn btn-filter" type="submit" value="Sort" />
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+    <div class="todo-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Email</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
+</html>
