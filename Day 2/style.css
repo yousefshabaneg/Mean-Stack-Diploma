@@ -1,0 +1,27 @@
+table,
+td {
+  border: 1px solid #777;
+  padding: 10px;
+}
+
+th {
+  padding: 10px;
+}
+
+thead,
+tfoot {
+  background-color: #777;
+  color: #fff;
+  padding: 10px;
+}
+
+#btnWrap {
+  display: flex;
+  justify-content: start;
+  gap: 20px 10px;
+}
+
+#result {
+  padding: 30px;
+  display: flex;
+}
