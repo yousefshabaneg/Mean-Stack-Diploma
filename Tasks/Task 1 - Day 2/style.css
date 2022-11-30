@@ -125,3 +125,10 @@ td {
   max-width: 200px;
   overflow: hidden;
 }
+
+.noData {
+  margin-top: 5rem;
+  background-color: #0d6dfd77;
+  width: 800px;
+  border-radius: 20px;
+}

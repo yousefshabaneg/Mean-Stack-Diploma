@@ -75,10 +75,15 @@ let users = User.mapLocalStorageToUsers();
 const usersForm = document.querySelector("#users-form");
 const usersBody = document.querySelector(".users-rows");
 const btnDeleteAll = document.querySelector(".btn-delete-all");
+const dataContainer = document.querySelector(".dataContainer");
+const noData = document.querySelector(".noData");
 
 usersForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const userObj = {};
+
+  dataContainer.style.display = "block";
+  noData.style.display = "none";
 
   heads.forEach((h) => (userObj[h] = usersForm.elements[h].value));
   const user = new User(userObj.name, userObj.age);
@@ -87,9 +92,14 @@ usersForm.addEventListener("submit", (e) => {
   LocalStorage.writeDataToStorage(usersKey, users);
 
   usersBody.innerHTML += user.convertUserToHtml();
+  usersForm.reset();
 });
 
 const renderUsers = () => {
+  if (!users.length) {
+    dataContainer.style.display = "none";
+    noData.style.display = "block";
+  }
   usersBody.innerHTML = "";
   users.forEach((u) => (usersBody.innerHTML += u.convertUserToHtml()));
 };
@@ -113,7 +123,7 @@ usersBody.addEventListener("click", function (e) {
   }
 
   LocalStorage.writeDataToStorage(usersKey, users);
-  renderUsers(users);
+  renderUsers();
 });
 
 btnDeleteAll.addEventListener("click", (e) => {
