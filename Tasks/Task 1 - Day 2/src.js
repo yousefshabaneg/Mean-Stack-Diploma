@@ -108,9 +108,8 @@ usersBody.addEventListener("click", function (e) {
   if (!e.target.matches("button") && !e.target.matches("input")) return;
 
   const tr = e.target.closest("tr");
-  const userId = +tr.getAttribute("data-id");
+  const userId = +tr.dataset.id;
   const user = users.find((u) => u.id == userId);
-
   if (!user) return;
 
   if (e.target.matches("button")) {
