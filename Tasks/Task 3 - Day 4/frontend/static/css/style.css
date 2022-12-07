@@ -1,0 +1,175 @@
+:root {
+  --color-primary: #212529;
+  --color-secondary: #e9ecef;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  background-color: #555;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  font-size: 18px;
+}
+
+h1,
+h2,
+h3 {
+  color: white;
+}
+
+table,
+form input,
+.btn-delete-all {
+  width: 100%;
+}
+
+form input,
+.btn-delete-all {
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 1px #555;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+button:focus,
+input:focus {
+  outline: 0;
+}
+
+input:focus,
+.btn-add:hover {
+  border-color: #7db0fb;
+  box-shadow: 0 0 0 3px #7daffb7c;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+  padding: 10px;
+  accent-color: #0d6efd;
+  /* border-color: #0d6efd; */
+}
+
+.btn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.2s;
+}
+
+.btn-delete,
+.btn-delete-all {
+  padding: 1rem 2rem;
+  background-color: #db4352;
+}
+
+.btn-delete:hover,
+.btn-delete-all:hover {
+  box-shadow: 0 0 0 0.3rem rgba(220, 53, 69, 0.5);
+}
+
+table,
+td,
+th {
+  border-collapse: collapse;
+  /* border: 1px solid #555; */
+  border: none;
+  padding: 1rem 0;
+}
+
+table {
+  background-color: #fff;
+}
+
+thead {
+  background-color: #212529;
+  color: white;
+}
+
+tbody td,
+tbody th {
+  padding: 1rem;
+  border-top: 1px solid #d2d8e0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formContainer {
+  /* background-color: yellow; */
+  width: 800px;
+}
+
+.dataContainer {
+  width: 800px;
+  display: flex;
+  justify-content: center;
+}
+td {
+  max-width: 200px;
+  overflow: hidden;
+}
+
+.noData {
+  margin-top: 5rem;
+  background-color: #0d6dfd77;
+  width: 800px;
+  border-radius: 20px;
+  display: none;
+}
+
+/*Navigation*/
+
+.main-nav {
+  width: 100%;
+
+  background-color: #2c2e31;
+
+  position: relative;
+}
+
+.main-nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #de4e00;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #ff5900;
+}

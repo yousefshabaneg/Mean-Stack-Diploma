@@ -1,0 +1,20 @@
+{{>header}}
+<div class="formContainer">
+        <div class="form-title">
+          <h1>Task 1 - Add User Form</h1>
+        </div>
+        <form id="users-form">
+          <input type="text" name="name" required placeholder="Name..." />
+          <input type="email" name="email" required placeholder="Email..." />
+          <input
+            type="number"
+            min="1"
+            max="150"
+            name="age"
+            required
+            placeholder="Age..."
+          />
+          <input class="btn btn-add" type="submit" name="submit" value="Add" />
+        </form>
+      </div>
+{{>footer}}
