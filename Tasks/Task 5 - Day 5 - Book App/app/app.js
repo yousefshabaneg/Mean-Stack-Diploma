@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
+const bookRoutes = require("./routes/book.routes");
 
 //Variables.
 const app = express();
@@ -19,5 +20,7 @@ app.use(
     extended: true,
   })
 );
+
+app.use(bookRoutes);
 
 module.exports = app;
