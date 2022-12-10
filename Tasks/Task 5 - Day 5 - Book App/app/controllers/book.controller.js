@@ -5,6 +5,7 @@ const Book = require("./book.class");
 class BookController {
   static sortPagesUp = true;
   static sortNameUp = true;
+  static sortSectionUp = true;
 
   static allBooks = (req, res) => {
     // if (req.query.search) {
@@ -24,26 +25,29 @@ class BookController {
 
   static sortBooks = (req, res) => {
     let books = this.getAllBooks();
+
+    // If user sort in search page. (only work one time.)
     const referrer = req.get("Referrer");
-
-    const isSearch = referrer.includes("search");
-
-    console.log(req);
-
-    if (isSearch) {
-      const search = referrer.split("=")[1];
+    const search = referrer?.includes("search") && referrer.split("=")[1];
+    if (search) {
       books = this.filterBooks(search);
-      console.log(search, books);
     }
 
     if (req.params.sortBy == "name") {
-      books.sort(this.compareBookName.bind(this.sortNameUp ? true : false));
+      books.sort(Book.compareBookName.bind(this.sortNameUp ? true : false));
       this.sortNameUp = !this.sortNameUp;
     }
 
     if (req.params.sortBy == "pages") {
-      books.sort(this.compareBookPages.bind(this.sortPagesUp ? true : false));
+      books.sort(Book.compareBookPages.bind(this.sortPagesUp ? true : false));
       this.sortPagesUp = !this.sortPagesUp;
+    }
+
+    if (req.params.sortBy == "section") {
+      books.sort(
+        Book.compareBookSection.bind(this.sortSectionUp ? true : false)
+      );
+      this.sortSectionUp = !this.sortSectionUp;
     }
 
     res.render("allBooks", { pageTitle: "All Books", books });
@@ -110,46 +114,6 @@ class BookController {
     return this.getAllBooks().filter((b) =>
       b.name.toLowerCase().includes(search.toLowerCase())
     );
-  }
-
-  static compareBookName(a, b) {
-    if (this) {
-      if (b.name < a.name) {
-        return -1;
-      }
-      if (b.name > a.name) {
-        return 1;
-      }
-    } else {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-    }
-
-    return 0;
-  }
-
-  static compareBookPages(a, b) {
-    if (this) {
-      if (b.numberOfPages < a.numberOfPages) {
-        return -1;
-      }
-      if (b.numberOfPages > a.numberOfPages) {
-        return 1;
-      }
-    } else {
-      if (a.numberOfPages < b.numberOfPages) {
-        return -1;
-      }
-      if (a.numberOfPages > b.numberOfPages) {
-        return 1;
-      }
-    }
-
-    return 0;
   }
 }
 

@@ -1,5 +1,7 @@
-class Book {
+const BookComparer = require("./book.comparer");
+class Book extends BookComparer {
   constructor(name, section, numberOfPages, id) {
+    super();
     this.id = id || +`${new Date().getTime()}`.slice(7);
     this.name = name;
     this.section = section;

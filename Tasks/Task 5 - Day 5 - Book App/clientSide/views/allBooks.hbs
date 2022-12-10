@@ -37,7 +37,17 @@
             </a>
             
             </th>
-            <th>Section</th>
+            <th >
+              <span>Section</span>
+              <a href="/sortBooks/section">
+                <img
+                src="/images/sort-solid.svg"
+                width="40"
+                height="20"
+                class="d-inline-block align-text-top"
+              />
+              </a>
+            </th>
             <th class="d-flex justify-content-between"> 
           <span>Number of Pages</span>
           <a href="/sortBooks/pages">
@@ -55,8 +65,8 @@
     <tbody>
       {{#each books}}
       <td>{{id}}</td>
-        <td>{{name}}</td>
-        <td>{{section}}</td>
+        <td  class="text">{{name}}</td>
+        <td  class="text">{{section}}</td>
         <td>{{numberOfPages}}</td>
         <td>
           <a href="/showBook/{{id}}" class="btn btn-primary mx-3">Details</a>
