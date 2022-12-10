@@ -1,56 +1,51 @@
+const { json } = require("express");
 const jsonHelper = require("../helpers/dealWithJson.helper");
-const { search } = require("../routes/book.routes");
 
 const Book = require("./book.class");
 class BookController {
-  static sortPagesUp = true;
-  static sortNameUp = true;
-  static sortSectionUp = true;
+  static sortPagesUp = false;
+  static sortNameUp = false;
+  static sortSectionUp = false;
 
   static allBooks = (req, res) => {
-    // if (req.query.search) {
-    //   console.log(req.query.search);
-    //   return this.searchInBooks(req, res);
-    // }
-
-    const books = this.getAllBooks();
-    res.render("allBooks", { pageTitle: "All Books", books });
-  };
-
-  static searchInBooks = (req, res) => {
-    const search = req.query.search;
-    const books = this.filterBooks(search);
-    res.render("allBooks", { pageTitle: "All Books", books });
-  };
-
-  static sortBooks = (req, res) => {
     let books = this.getAllBooks();
 
-    // If user sort in search page. (only work one time.)
-    const referrer = req.get("Referrer");
-    const search = referrer?.includes("search") && referrer.split("=")[1];
+    const { search, sort } = req.query;
+
     if (search) {
-      books = this.filterBooks(search);
+      books = this.searchInBooks(search, books);
     }
 
-    if (req.params.sortBy == "name") {
+    if (sort) {
+      books = this.sortBooks(sort, books);
+    }
+
+    res.render("allBooks", { pageTitle: "All Books", books, search });
+  };
+
+  static searchInBooks = (search) => {
+    return this.filterBooks(search);
+  };
+
+  static sortBooks = (sort, books) => {
+    if (sort == "name") {
       books.sort(Book.compareBookName.bind(this.sortNameUp ? true : false));
       this.sortNameUp = !this.sortNameUp;
     }
 
-    if (req.params.sortBy == "pages") {
+    if (sort == "pages") {
       books.sort(Book.compareBookPages.bind(this.sortPagesUp ? true : false));
       this.sortPagesUp = !this.sortPagesUp;
     }
 
-    if (req.params.sortBy == "section") {
+    if (sort == "section") {
       books.sort(
         Book.compareBookSection.bind(this.sortSectionUp ? true : false)
       );
       this.sortSectionUp = !this.sortSectionUp;
     }
 
-    res.render("allBooks", { pageTitle: "All Books", books });
+    return books;
   };
 
   static showBook = (req, res) => {

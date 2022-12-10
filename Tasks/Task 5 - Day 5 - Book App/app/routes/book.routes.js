@@ -3,9 +3,9 @@ const bookController = require("../controllers/book.controller");
 
 router.get("/", bookController.allBooks);
 
-router.get("/searchInBooks", bookController.searchInBooks);
+// router.get("/searchInBooks", bookController.searchInBooks);
 
-router.get("/sortBooks/:sortBy", bookController.sortBooks);
+// router.get("/sortBooks/:sortBy", bookController.sortBooks);
 
 router.get("/showBook/:id", bookController.showBook);
 
