@@ -105,7 +105,7 @@ class BookController {
     return this.getAllBooks().findIndex((b) => b.id == id);
   }
 
-  static filterBooks(search) {
+  static filterBooks(search, books) {
     return this.getAllBooks().filter((b) =>
       b.name.toLowerCase().includes(search.toLowerCase())
     );

@@ -1,0 +1,28 @@
+{{>header}}
+{{>navbar}}
+<section class="my-5 container">
+  {{#unless task}}
+  <div class="alert text-center alert-dark">
+    Invalid Task Id
+  </div>
+  {{else}}
+  <div class="row alert alert-info">
+    <div class="col-2">
+      id: {{task._id}}
+    </div>
+    <div class="col-2">
+      Date: {{task.dueDate}}
+    </div>
+    <div class="col-2">
+      Status: {{task.status}}
+    </div>
+    <div class="col-3">
+      Title: {{task.title}}
+    </div>
+    <div class="col-3">
+      Content: {{task.content}}
+    </div>
+  </div>
+   {{/unless}}
+</section>
+{{>footer}}
