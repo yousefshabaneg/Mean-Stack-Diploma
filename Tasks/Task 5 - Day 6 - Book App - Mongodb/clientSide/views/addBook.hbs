@@ -1,0 +1,23 @@
+{{>header}}
+{{>navbar}}
+<section class="my-5 container">
+    <div class="alert bg-dark text-white h3">
+    Create New Book
+  </div>
+  <form method="POST">
+  <div class="mb-3">
+    <label class="form-label badge badge bg-dark">Name</label>
+    <input type="text" name="name" maxlength="200" class="form-control" required>
+  </div>
+   <div class="mb-3">
+    <label class="form-label badge badge bg-dark">Section</label>
+    <input type="text" name="section" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label badge badge bg-dark">Number of Pages</label>
+    <input type="number" name="numberOfPages" required min="1" max="5000" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</section>
+{{>footer}}

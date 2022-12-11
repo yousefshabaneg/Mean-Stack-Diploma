@@ -1,0 +1,38 @@
+{{>header}}
+{{>navbar}}
+<section class="my-5 container">
+  {{#if book}}
+    <div class="alert bg-dark text-white h3">
+    Edit Book
+  </div>
+  <form method="POST">
+  <div class="mb-3">
+    <label class="form-label badge badge bg-dark">ID</label>
+    <input type="number" name="id" class="form-control" value="{{book.id}}" disabled>
+  </div>
+  <div class="mb-3">
+    <label class="form-label badge badge bg-dark">Name</label>
+    <input type="text" name="name" maxlength="200" class="form-control" required value="{{book.name}}">
+  </div>
+   <div class="mb-3">
+    <label class="form-label badge badge bg-dark">Section</label>
+    <input type="text" name="section" class="form-control" value="{{book.section}}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label badge badge bg-dark">Number of Pages</label>
+    <input type="number" name="numberOfPages" required min="1" max="5000" class="form-control" value="{{book.numberOfPages}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{else}}
+<div class="alert bg-dark text-white d-flex align-items-center">
+    <div class="h3">
+      Invalid Book Id
+    </div>
+    <div>
+      <a href="/addBook" class="btn btn-primary mx-3">Create New Book</a> 
+    </div>
+  </div>
+{{/if}}
+</section>
+{{>footer}}

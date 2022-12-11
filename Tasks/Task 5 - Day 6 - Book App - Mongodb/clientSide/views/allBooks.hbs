@@ -1,0 +1,90 @@
+{{>header}}
+{{>navbar}}
+<section class="my-5 container">
+   {{#if books}}
+  <div class="alert bg-dark text-white h3 d-flex justify-content-between align-items-center">
+    <div>
+      All Books
+    </div>
+        <i class="bi bi-sort-up bg-white"></i>
+    <div>
+       <form class="d-flex" action="/">
+          <input
+            class="form-control me-2"
+            type="search"
+            name="search"
+            placeholder="Search in Books"
+            aria-label="Search"
+            required
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+  </div>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th >
+              <span>Name</span>
+              <a href="{{#if search}}?search={{search}}&sort=name {{else}}?sort=name{{/if}}">
+                <img
+                src="/images/sort-solid.svg"
+                width="40"
+                height="20"
+                class="d-inline-block align-text-top"
+              />
+            </a>
+            </th>
+             <th >
+              <span>Section</span>
+              <a href="{{#if search}}?search={{search}}&sort=section {{else}}?sort=section{{/if}}">
+                <img
+                src="/images/sort-solid.svg"
+                width="40"
+                height="20"
+                class="d-inline-block align-text-top"
+              />
+            </a>
+            </th>
+             <th >
+            <span>Number of Pages</span>
+              <a href="{{#if search}}?search={{search}}&sort=pages {{else}}?sort=pages{{/if}}">
+                <img
+                src="/images/sort-solid.svg"
+                width="40"
+                height="20"
+                class="d-inline-block align-text-top"
+              />
+            </a>
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+      {{#each books}}
+      <td>{{id}}</td>
+        <td  class="text">{{name}}</td>
+        <td  class="text">{{section}}</td>
+        <td>{{numberOfPages}}</td>
+        <td>
+          <a href="/showBook/{{_id}}" class="btn btn-primary mx-3">Details</a>
+          <a href="/editBook/{{_id}}" class="btn btn-info mx-3">Edit</a>
+          <a href="/deleteBook/{{_id}}" class="btn btn-danger mx-3">Delete</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{else}}
+  <div class="alert bg-dark text-white d-flex align-items-center">
+    <div class="h3">
+      No Books Yet
+    </div>
+    <div>
+      <a href="/addBook" class="btn btn-primary mx-3">Create New Book</a> 
+    </div>
+  </div>
+  {{/if}}
+</section>
+{{>footer}}

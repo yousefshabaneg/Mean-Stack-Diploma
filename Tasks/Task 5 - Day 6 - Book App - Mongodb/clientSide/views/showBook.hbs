@@ -1,0 +1,47 @@
+{{>header}}
+{{>navbar}}
+<section class="my-5 container">
+  {{#if book}}
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th colspan="100%" class="h3">Book Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-warning">Id</td>
+        <td style="width: 70%;">{{book.id}}</td>
+      </tr>
+      <tr>
+        <td class="text-warning">Name</td>
+        <td style="width: 70%;">{{book.name}}</td>
+      </tr>
+      <tr>
+        <td class="text-warning">Section</td>
+        <td style="width: 70%;">{{book.section}}</td>
+      </tr>
+      <tr>
+        <td class="text-warning">Number Of Pages</td>
+        <td style="width: 70%;">{{book.numberOfPages}}</td>
+      </tr>
+      <tr>
+          <td colspan="100%">
+            <a href="/editBook/{{book.id}}" class="btn btn-info mx-3">Edit</a>
+            <a href="/deleteBook/{{book.id}}" class="btn btn-danger mx-3">Delete</a>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+   {{else}}
+    <div class="alert bg-dark text-white d-flex align-items-center">
+    <div class="h3">
+      Invalid Book Id
+    </div>
+    <div>
+      <a href="/addBook" class="btn btn-primary mx-3">Create New Book</a> 
+    </div>
+  </div>
+   {{/if}}
+</section>
+{{>footer}}
