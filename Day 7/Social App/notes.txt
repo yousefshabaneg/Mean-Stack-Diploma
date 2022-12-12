@@ -1,0 +1,23 @@
+socail
+
+users
+--> id, fName,lName, email,status, addresss=[], image, password,gender,dOfBirth, phoneNum;
+
+posts
+--> userId, id, type: "txt", "file", if(txt) content: required
+if(file) file:required
+[comments]
+
+ - register ==> encrypt(password)
+ - login
+ - edit profile => if (logged in) (Authorization)
+ - activate account
+ - deActivate account
+ - change password
+ - logout
+ - delete account
+ - get profile
+ - forgot password
+
+
+posts => add, getAll, get single, delete, edit, get my posts,

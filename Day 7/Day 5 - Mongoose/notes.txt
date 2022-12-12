@@ -1,0 +1,9 @@
+Todo App
+- Add task (id, title, content, status, due date).
+- show All Tasks.
+- single task.
+- edit task.
+- activate task.
+- delete task.
+- filter , search
+

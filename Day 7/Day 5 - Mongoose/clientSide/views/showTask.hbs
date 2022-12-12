@@ -1,0 +1,42 @@
+{{>header}}
+{{>navbar}}
+<section class="my-5 container">
+  {{#unless task}}
+  <div class="alert text-center alert-dark">
+    Invalid Task Id
+  </div>
+  {{else}}
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th colspan="100%" class="h3">Task Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-warning">Id</td>
+        <td style="width: 70%;">{{task._id}}</td>
+      </tr>
+      <tr>
+        <td class="text-warning">Title</td>
+        <td style="width: 70%;">{{task.title}}</td>
+      </tr>
+      <tr>
+        <td class="text-warning">Content</td>
+        <td style="width: 70%;">{{task.content}}</td>
+      </tr>
+      <tr>
+        <td class="text-warning">Status</td>
+        <td style="width: 70%;">{{task.status}}</td>
+      </tr>
+      <tr>
+          <td colspan="100%">
+            <a href="/editTask/{{task._id}}" class="btn btn-info mx-3">Edit</a>
+            <a href="/deleteTask/{{task._id}}" class="btn btn-danger mx-3">Delete</a>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+   {{/unless}}
+</section>
+{{>footer}}
