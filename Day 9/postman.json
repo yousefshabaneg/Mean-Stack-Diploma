@@ -1,0 +1,213 @@
+{
+  "info": {
+    "_postman_id": "2986d9d9-8cbd-4f32-94f6-fe29a6419841",
+    "name": "ODC-Training",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "register user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fName\": \"Yousef\",\n    \"lName\": \"Shaban\",\n    \"email\": \"joe@gmail.com\",\n    \"password\": \"odc123\",\n    \"addresses\": [\n        {\n            \"addressType\": \"Home\",\n            \"details\": \"Tanta.\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{userUrl}}/register",
+              "host": ["{{userUrl}}"],
+              "path": ["register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getUser",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{userUrl}}/6398624637aa33ccc953372a",
+              "host": ["{{userUrl}}"],
+              "path": ["6398624637aa33ccc953372a"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"joe@gmail.com\",\n    \"password\": \"odc123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{userUrl}}/login",
+              "host": ["{{userUrl}}"],
+              "path": ["login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAllUsers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "56",
+                "value": "",
+                "type": "default"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EwM2M2YTdmMTM2N2Q0MjE5MDJmNGMiLCJpYXQiOjE2NzE0NDczMTV9.dydo2igvHdyOWvLGpB-D1XN6J5mgCAqqBOBhIVQbQAw",
+                "type": "default"
+              }
+            ],
+            "url": {
+              "raw": "{{userUrl}}/getAllUsers",
+              "host": ["{{userUrl}}"],
+              "path": ["getAllUsers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "profile",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "default"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{userUrl}}/profile",
+              "host": ["{{userUrl}}"],
+              "path": ["profile"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "activateStatus",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "default"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{userUrl}}/activateStatus",
+              "host": ["{{userUrl}}"],
+              "path": ["activateStatus"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            },
+            "url": {
+              "raw": "{{userUrl}}/logout",
+              "host": ["{{userUrl}}"],
+              "path": ["logout"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "post",
+      "item": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api",
+      "type": "default"
+    },
+    {
+      "key": "userUrl",
+      "value": "http://localhost:3000/api/user/",
+      "type": "default"
+    },
+    {
+      "key": "postUrl",
+      "value": "http://localhost:3000/api/post/",
+      "type": "default"
+    },
+    {
+      "key": "token",
+      "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EwM2M2YTdmMTM2N2Q0MjE5MDJmNGMiLCJpYXQiOjE2NzE0NDU2MTB9.C4shgq6Jd8gRpLNvXJWi9lQLSVEj-Z2zFxL7_WHg3Lo",
+      "type": "default"
+    }
+  ]
+}
