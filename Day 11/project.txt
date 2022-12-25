@@ -1,0 +1,26 @@
+property CRM:
+=> USERS => (customer, employee, super admin)
+// each user has units column with object of unit {unit {id,name} , project_id, price}  
+=> roles
+[
+  {
+    role: "ADMIN",
+    urls: [
+      "http://api/addUser",
+      "http://api/addBuild",
+    ]
+  }
+]
+=> PROJECTS
+  - PROJECTS types => for buy, for show
+  - PROJECTS:   each Project (id, name , show or buy)
+                  => some of Buildings (BuildingId, project_id, some of units)
+                  => each build (number, area, 1b,6c) 
+                  => some of floors
+                  => each floor has 4 units (status => bought or not, price)
+- Accountant => 1c => 5 => 51 => دور 5 شقة 1 ==> bought
+- payments => down payment بتاريخ العقد,  unit has customer and payment table.
+- receipt => pdf
+
+-advanced:
+  - corn job.
