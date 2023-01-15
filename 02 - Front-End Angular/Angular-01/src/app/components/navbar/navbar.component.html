@@ -1,0 +1,42 @@
+<div class="row gy-3">
+  <h2 style="padding: 1rem">Filter</h2>
+  <div class="container">
+    <input
+      type="text"
+      [(ngModel)]="searchWord"
+      (ngModelChange)="search(searchWord)"
+    />
+  </div>
+  <div
+    class="col-12 col-md-6 col-lg-4"
+    *ngFor="
+      let post of filteredPosts;
+      let i = index;
+      let f = first;
+      let l = last;
+      let e = even;
+      let o = odd;
+      let c = count
+    "
+  >
+    <div
+      class="card"
+      [ngClass]="{
+        'alert alert-info': f,
+        'border-danger': e,
+        'border-dark': o
+      }"
+    >
+      <div class="card-body">
+        <h4>{{ i + 1 }}</h4>
+        <h6>{{ post.title }}</h6>
+        <button class="btn btn-danger" (click)="deletePost(i)">
+          Delete Post
+        </button>
+        <button class="btn btn-info" (click)="editPost(i)">Edit Post</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <h3 *ngFor="let num of numArray">{{ num }}</h3> -->

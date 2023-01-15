@@ -1,0 +1,27 @@
+<!-- Interpolation -->
+<!-- <img src="{{ imgPath }}" width="300px" /> -->
+
+<!-- Property Binding -->
+<!-- <img [src]="imgPath" width="300px" />
+<input [type]="inputType" value="" /> -->
+
+<!-- Event Binding -->
+<div class="container">
+  <h1>{{ h1Text }}</h1>
+  <button class="btn btn-{{ buttonClass }}" (click)="handleClick()">
+    Change Text
+  </button>
+</div>
+
+<div class="container d-flex">
+  <div class="container">
+    <input type="text" (input)="handleInput($event)" />
+  </div>
+  <div class="container">
+    <input type="text" (input)="handleChange(userInput)" #userInput />
+  </div>
+</div>
+
+<div class="container" style="height: 30px">
+  {{ userInput.value }}
+</div>
